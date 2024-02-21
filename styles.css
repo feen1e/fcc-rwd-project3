@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: Segoe UI, serif;
+    scroll-behavior: smooth;
 }
 
 #navbar {
@@ -8,6 +9,7 @@
     top: 0;
     left: 0;
     width: 20vw;
+    max-width: 20vw;
     float: left;
     font-size: 1.2rem;
 }
@@ -42,7 +44,8 @@
 }
 
 #main-doc {
-    width: 80vw;
+    max-width: 80vw;
+    width: 79vw;
     position: absolute;
     top: 0;
     left: 20vw;
