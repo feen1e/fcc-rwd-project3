@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technical Documentation Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>C# Documentation</header>
+        <ul>
+            <li><a class="nav-link" href="#Hello_World">Hello World</a></li>
+            <li><a class="nav-link" href="#Namespaces">Namespaces</a></li>
+            <li><a class="nav-link" href="#Types_and_Variables">Types and Variables</a></li>
+            <li><a class="Nav-link" href="#Declaring_Classes">Declaring Classes</a></li>
+            <li><a class="Nav-link" href="#Creating_Objects">Creating Objects</a></li>
+            <li><a class="nav-link" href="#Members">Members</a></li>
+            <li><a class="nav-link" href="#Accessibility">Accessibility</a></li>
+            <li><a class="nav-link" href="#Reference">Reference</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Hello_World">
+            <header>Hello World</header>
+            <p>The "Hello, World" program is traditionally used to introduce a programming language. Here it is in C#:</p>
+            <code>using System;<br>class Hello { static void Main() { Console.WriteLine("Hello, World"); } }</code>
+            <p>The "Hello, World" program starts with a <span class="highlight">using</span> directive that references the <span class="highlight">System</span> namespace.
+                Namespaces provide a hierarchical means of organizing C# programs and libraries.
+                Namespaces contain types and other namespaces—for example, the <span class="highlight">System</span> namespace contains a
+                number of types, such as the <span class="highlight">Console</span> class referenced in the program, and many other namespaces,
+                such as <span class="highlight">IO</span> and <span class="highlight">Collections</span>. A <span class="highlight">using</span> directive that references a given namespace enables unqualified
+                use of the types that are members of that namespace. Because of the <span class="highlight">using</span> directive, the program
+                can use <span class="highlight">Console.WriteLine</span> as shorthand for <span class="highlight">System.Console.WriteLine</span>.</p>
+            <p>The <span class="highlight">Hello</span> class declared by the "Hello, World" program has a single member, the method named <span class="highlight">Main</span>.
+                The <span class="highlight">Main</span> method is declared with the <span class="highlight">static</span> modifier. While instance methods can reference a particular
+                enclosing object instance using the keyword <span class="highlight">this</span>, static methods operate without reference to a
+                particular object. By convention, a static method named <span class="highlight">Main</span> serves as the entry point of a C# program.</p>
+            <p>The output of the program is produced by the <span class="highlight">WriteLine</span> method of the <span class="highlight">Console</span> class
+                in the <span class="highlight">System</span> namespace. This class is provided by the standard class libraries, which, by default, are
+                automatically referenced by the compiler.</p>
+        </section>
+        <section class="main-section" id="Namespaces">
+            <header>Namespaces</header>
+            <p>Namespaces have the following properties:</p>
+            <ul>
+                <li>They organize large code projects.</li>
+                <li>They're delimited by using the <span class="highlight">.</span> operator.</li>
+                <li>The <span class="highlight">using</span> directive obviates the requirement to specify the name of the namespace for every class.</li>
+                <li>The <span class="highlight">global</span> namespace is the "root" namespace: <span class="highlight">global::System</span> will always refer to the .NET System namespace.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Types_and_Variables">
+            <header>Types and Variables</header>
+            <p>A type defines the structure and behavior of any data in C#. The declaration of a type may include its members, base type, interfaces it implements, and operations permitted for that type. A variable is a label that refers to an instance of a specific type.</p>
+            <p>There are two kinds of types in C#: value types and reference types. Variables of value types directly contain their data. Variables of reference types store references to their data, the latter being known as objects. With reference types, it's possible for two variables to reference the same object and possible for operations on one variable to affect the object referenced by the other variable. With value types, the variables each have their own copy of the data, and it isn't possible for operations on one to affect the other (except for <span class="highlight">ref</span> and <span class="highlight">out</span> parameter variables).</p>
+            <p>An identifier is a variable name. An identifier is a sequence of unicode characters without any whitespace. An identifier may be a C# reserved word, if it's prefixed by <span class="highlight">@</span>. Using a reserved word as an identifier can be useful when interacting with other languages.</p>
+            <p>C#'s value types are further divided into:</p>
+            <ul>
+                <li>simple types</li>
+                <li>enum types</li>
+                <li>struct types</li>
+                <li>nullable value types</li>
+                <li>tuple value types</li>
+            </ul>
+            <p>C#'s reference types are further divided into:</p>
+            <ul>
+                <li>class types</li>
+                <li>interface types</li>
+                <li>array types</li>
+                <li>delegate types</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Declaring_Classes">
+            <header>Declaring Classes</header>
+            <p>Classes are declared by using the <span class="highlight">class</span> keyword followed by a unique identifier, as shown in the following example:</p>
+            <code><span class="comment">//[access modifier] - [class] - [identifier]</span><br>public class Customer {<br><span class="comment">// Fields, properties, methods and events go here...</span><br>}</code>
+            <p>An optional access modifier precedes the <span class="highlight">class</span> keyword. Because public is used in this case, anyone can create instances of this class. The name of the class follows the <span class="highlight">class</span> keyword. The name of the class must be a valid C# identifier name. The remainder of the definition is the class body, where the behavior and data are defined. Fields, properties, methods, and events on a class are collectively referred to as class members.</p>
+        </section>
+        <section class="main-section" id="Creating_Objects">
+            <header>Creating Objects</header>
+            <p>Although they're sometimes used interchangeably, a class and an object are different things. A class defines a type of object, but it isn't an object itself. An object is a concrete entity based on a class, and is sometimes referred to as an instance of a class.</p>
+            <p>Objects can be created by using the <span class="highlight">new</span> keyword followed by the name of the class, like this:</p>
+            <code>Customer object1 = new Customer();</code>
+            <p>When an instance of a class is created, a reference to the object is passed back to the programmer. In the previous example, <span class="highlight">object1</span> is a reference to an object that is based on <span class="highlight">Customer</span>. This reference refers to the new object but doesn't contain the object data itself. In fact, you can create an object reference without creating an object at all:</p>
+            <code>Customer object2;</code>
+            <p>We don't recommend creating object references that don't refer to an object because trying to access an object through such a reference fails at run time. A reference can be made to refer to an object, either by creating a new object, or by assigning it an existing object, such as this:</p>
+            <code>Customer object3 = new Customer();<br>Customer object4 = object3;</code>
+            <p>This code creates two object references that both refer to the same object. Therefore, any changes to the object made through <span class="highlight">object3</span> are reflected in subsequent uses of <<span class="highlight">object4</span>. Because objects that are based on classes are referred to by reference, classes are known as reference types.</p>
+        </section>
+        <section class="main-section" id="Members">
+            <header>Members</header>
+            <p>The members of a <span class="highlight">class</span> are either static members or instance members. Static members belong to classes, and instance members belong to objects (instances of classes).</p>
+            <p>The following list provides an overview of the kinds of members a class can contain.</p>
+            <ul>
+                <li><span class="highlight">Constants</span>: Constant values associated with the class</li>
+                <li><span class="highlight">Fields</span>: Variables that are associated with the class</li>
+                <li><span class="highlight">Methods</span>: Actions that can be performed by the class</li>
+                <li><span class="highlight">Properties</span>: Actions associated with reading and writing named properties of the class</li>
+                <li><span class="highlight">Indexers</span>: Actions associated with indexing instances of the class like an array</li>
+                <li><span class="highlight">Events</span>: Notifications that can be generated by the class</li>
+                <li><span class="highlight">Operators</span>: Conversions and expression operators supported by the class</li>
+                <li><span class="highlight">Constructors</span>: Actions required to initialize instances of the class or the class itself</li>
+                <li><span class="highlight">Finalizers</span>: Actions done before instances of the class are permanently discarded</li>
+                <li><span class="highlight">Types</span>: Nested types declared by the class
+            </ul>
+        </section>
+        <section class="main-section" id="Accessibility">
+            <header>Accessibility</header>
+            <p>Each member of a class has an associated accessibility, which controls the regions of program text that can access the member. There are six possible forms of accessibility. The access modifiers are summarized below.</p>
+            <ul>
+                <li><span class="highlight">public</span>: Access isn't limited.</li>
+                <li><span class="highlight">private</span>: Access is limited to this class.</li>
+                <li><span class="highlight">protected</span>: Access is limited to this class or classes derived from this class.</li>
+                <li><span class="highlight">internal</span>: Access is limited to the current assembly (.exe or .dll).</li>
+                <li><span class="highlight">protected internal</span>: Access is limited to this class, classes derived from this class, or classes within the same assembly.</li>
+                <li><span class="highlight">private protected</span>: Access is limited to this class or classes derived from this type within the same assembly.</li>
+            </ul>
+        </section>
+        <section class="main-section" id="Reference">
+            <header>Reference</header>
+            <p>All the documentation in this page is taken from <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">Microsoft Learn</a></p>
+        </section>
+    </main>
+</body>
+</html>
